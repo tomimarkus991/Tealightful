@@ -15,6 +15,7 @@ export const TeaCard = ({ tea }: Props) => {
 
   const brewTimeMin = intervalToDuration({ start: 0, end: tea.brewTime.min * 1000 });
   const brewTimeMax = intervalToDuration({ start: 0, end: tea.brewTime.max * 1000 });
+
   return (
     <AnimationWrapper keyIndex="tea-card" variants={animations.makeBiggerAndRotateSlightly}>
       <div
@@ -34,10 +35,17 @@ export const TeaCard = ({ tea }: Props) => {
         />
         <div className="flex flex-col p-3 rounded-b-xl">
           <p className="mb-2 text-2xl font-medium">{tea.title}</p>
-          <div className="flex flex-row items-center">
-            <p className="">{`${brewTimeMin.minutes} minutes`}</p>
-            <GoDash className="text-gray-700" />
-            <p className="">{`${brewTimeMax.minutes} minutes`}</p>
+          <p className="mb-2">{tea.description}</p>
+          <div className="flex flex-row items-center text-sm">
+            {brewTimeMin.minutes === brewTimeMax.minutes ? (
+              <p>{`${brewTimeMin.minutes} minutes`}</p>
+            ) : (
+              <>
+                <p>{`${brewTimeMin.minutes} minutes`}</p>
+                <GoDash className="text-zinc-700" />
+                <p>{`${brewTimeMax.minutes} minutes`}</p>
+              </>
+            )}
           </div>
         </div>
       </div>

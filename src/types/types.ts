@@ -7,29 +7,38 @@ export interface ITea {
   id: string;
   title: string;
   description: string;
+  color: string;
   image: string;
+
+  brewTime: {
+    /**
+     * @constant in seconds
+     */
+    min: number;
+    /**
+     * @constant in seconds
+     */
+    max: number;
+  };
   /**
-   * @constant in Milliseconds
-   */
-  brewTime: number;
-  /**
-   * @constant in Milliseconds
+   * @constant in seconds
    * @constant in Celsius
    */
   steepTime: number;
   /**
-   * @constant in Milliseconds
+   * @constant in seconds
    * @constant in Celsius
    */
   restTime: number;
-  /**
-   * @constant in Milliseconds
-   * @constant in Celsius
-   */
-  steepTemperature: number;
-  /**
-   * @constant in Milliseconds
-   * @constant in Celsius
-   */
-  restTemperature: number;
+
+  temperature: {
+    /**
+     * @constant in seconds
+     */
+    min: number;
+    /**
+     * @constant in seconds
+     */
+    max: number;
+  };
 }

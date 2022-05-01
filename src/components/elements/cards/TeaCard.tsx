@@ -1,4 +1,6 @@
 import clsx from "clsx";
+import { intervalToDuration } from "date-fns";
+import { GoDash } from "react-icons/all";
 import { useNavigate } from "react-router-dom";
 
 import { animations, AnimationWrapper } from "components";
@@ -10,6 +12,9 @@ interface Props {
 export const TeaCard = ({ tea }: Props) => {
   const { image } = tea;
   const navigate = useNavigate();
+
+  const brewTimeMin = intervalToDuration({ start: 0, end: tea.brewTime.min * 1000 });
+  const brewTimeMax = intervalToDuration({ start: 0, end: tea.brewTime.max * 1000 });
   return (
     <AnimationWrapper keyIndex="tea-card" variants={animations.makeBiggerAndRotateSlightly}>
       <div
@@ -27,8 +32,13 @@ export const TeaCard = ({ tea }: Props) => {
           alt="tea"
           className="aspect-video w-full h-40 rounded-t-lg"
         />
-        <div className="flex flex-row p-3 rounded-b-xl">
-          <p className="text-2xl font-medium">{tea.title}</p>
+        <div className="flex flex-col p-3 rounded-b-xl">
+          <p className="mb-2 text-2xl font-medium">{tea.title}</p>
+          <div className="flex flex-row items-center">
+            <p className="">{`${brewTimeMin.minutes} minutes`}</p>
+            <GoDash className="text-gray-700" />
+            <p className="">{`${brewTimeMax.minutes} minutes`}</p>
+          </div>
         </div>
       </div>
     </AnimationWrapper>

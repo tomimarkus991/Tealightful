@@ -1,1 +1,48 @@
-export const placeHolder = [];
+import { ITea } from "types";
+
+export const teas: ITea[] = [
+  {
+    id: "1",
+    title: "Green Tea",
+    description: "A green tea is a type of tea that is made from Camellia sinensis leaves.",
+    image: "green_2.jpg",
+    brewTime: 30000,
+    steepTime: 30000,
+    restTime: 30000,
+    steepTemperature: 100,
+    restTemperature: 100,
+  },
+  {
+    id: "2",
+    title: "Black Tea",
+    description: "A black tea is a type of tea that is made from Camellia sinensis leaves.",
+    image: "black_tea.jpg",
+    brewTime: 30000,
+    steepTime: 30000,
+    restTime: 30000,
+    steepTemperature: 100,
+    restTemperature: 100,
+  },
+  {
+    id: "3",
+    title: "Oolong Tea",
+    description: "A green tea is a type of tea that is made from Camellia sinensis leaves.",
+    image: "green_2.jpg",
+    brewTime: 30000,
+    steepTime: 30000,
+    restTime: 30000,
+    steepTemperature: 100,
+    restTemperature: 100,
+  },
+  {
+    id: "4",
+    title: "Pu-erh Tea",
+    description: "A green tea is a type of tea that is made from Camellia sinensis leaves.",
+    image: "green_3.jpg",
+    brewTime: 30000,
+    steepTime: 30000,
+    restTime: 30000,
+    steepTemperature: 100,
+    restTemperature: 100,
+  },
+];

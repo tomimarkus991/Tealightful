@@ -1,7 +1,7 @@
-import { HiHome, RiTimerFlashFill } from "react-icons/all";
+import { HiHome, HiInformationCircle } from "react-icons/all";
 import { Link } from "react-router-dom";
 
-import { animations, AnimationWrapper } from "components";
+import { animations, AnimationWrapper, TimerPopover } from "components";
 
 export const NavbarBottom = () => {
   return (
@@ -16,13 +16,14 @@ export const NavbarBottom = () => {
             <HiHome className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800" />
           </AnimationWrapper>
         </Link>
-        <Link to="/stats">
+        <TimerPopover />
+        <Link to="/info">
           <AnimationWrapper
             variants={animations.smallScale}
             animateOnAllScreens
             keyIndex="nb-chart-icon"
           >
-            <RiTimerFlashFill className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800" />
+            <HiInformationCircle className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800" />
           </AnimationWrapper>
         </Link>
       </div>

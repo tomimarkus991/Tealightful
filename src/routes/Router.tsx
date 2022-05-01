@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 // eslint-disable-next-line import/no-unresolved
 import { useRegisterSW } from "virtual:pwa-register/react";
 
-import { HomePage, TimerPage, TeaPage } from "pages";
+import { HomePage, TimerPage, TeaPage, InfoPage } from "pages";
 
 export const Router = () => {
   const root = document.documentElement;
@@ -32,6 +32,7 @@ export const Router = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/teas/:id" element={<TeaPage />} />
       <Route path="/stats" element={<TimerPage />} />
+      <Route path="/info" element={<InfoPage />} />
     </Routes>
   );
 };

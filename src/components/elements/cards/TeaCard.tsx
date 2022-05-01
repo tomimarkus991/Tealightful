@@ -42,7 +42,7 @@ export const TeaCard = ({ tea }: Props) => {
             ) : (
               <>
                 <p>{`${brewTimeMin.minutes} minutes`}</p>
-                <GoDash className="text-zinc-700" />
+                <GoDash className="text-zinc-800" />
                 <p>{`${brewTimeMax.minutes} minutes`}</p>
               </>
             )}

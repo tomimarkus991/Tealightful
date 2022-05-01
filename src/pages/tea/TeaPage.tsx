@@ -11,7 +11,11 @@ export const TeaPage = () => {
   return (
     <DefaultWrapper>
       <div className="flex flex-row justify-between items-center p-4 w-full">
-        <AnimationWrapper keyIndex="modal-header-left-arrow-icon" variants={animations.rotate360}>
+        <AnimationWrapper
+          className="cursor-pointer"
+          keyIndex="modal-header-left-arrow-icon"
+          variants={animations.rotate360}
+        >
           <HiArrowLeft
             className="w-8 h-8 fill-slate-700 hover:fill-slate-800"
             onClick={() => navigate(-1)}

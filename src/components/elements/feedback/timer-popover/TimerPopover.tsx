@@ -1,17 +1,25 @@
 import { Popover } from "@headlessui/react";
 
 import clsx from "clsx";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { HiChevronDown, HiChevronUp, MdRestartAlt, RiTimerFlashFill } from "react-icons/all";
 
 import { AnimationWrapper, animations, RealButton, RealIconButton } from "components";
+import { useTimer } from "context";
 
 export const TimerPopover = () => {
-  const [seconds, setSeconds] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [started, setStarted] = useState(false);
-  const [isComplete, setIsComplete] = useState(false);
-  const [isDisabled, setIsDisabled] = useState(true);
+  const {
+    seconds,
+    minutes,
+    started,
+    isComplete,
+    isDisabled,
+    setIsComplete,
+    setIsDisabled,
+    setMinutes,
+    setSeconds,
+    setStarted,
+  } = useTimer();
 
   useEffect(() => {
     if (seconds === 0 && minutes === 0) {
@@ -32,7 +40,7 @@ export const TimerPopover = () => {
           // count down one minute and set seconds to 59
           if (seconds === 0 && minutes > 0) {
             setMinutes(minutes => minutes - 1);
-            setSeconds(59);
+            setSeconds(60);
           }
           // count down one second
           setSeconds(seconds => seconds - 1);
@@ -86,65 +94,85 @@ export const TimerPopover = () => {
               ) : (
                 <>
                   <div className="flex flex-col justify-center items-center min-w-[2.5rem] max-w-[2.5rem]">
-                    <HiChevronUp
+                    <AnimationWrapper
                       className="cursor-pointer"
-                      onClick={() =>
-                        setMinutes(state => {
-                          if (state + 1 >= 21) {
-                            return 0;
-                          } else {
-                            return state + 1;
-                          }
-                        })
-                      }
-                    />
+                      keyIndex="timer-popover-scale"
+                      variants={animations.smallScale}
+                    >
+                      <HiChevronUp
+                        onClick={() =>
+                          setMinutes(state => {
+                            if (state + 1 >= 21) {
+                              return 0;
+                            } else {
+                              return state + 1;
+                            }
+                          })
+                        }
+                      />
+                    </AnimationWrapper>
                     <p className="">
                       {minutes < 10 && "0"}
                       {minutes}
                     </p>
-                    <HiChevronDown
+                    <AnimationWrapper
                       className="cursor-pointer"
-                      onClick={() =>
-                        setMinutes(state => {
-                          if (state - 1 <= -1 || state - 1 < 0) {
-                            return 20;
-                          } else {
-                            return state - 1;
-                          }
-                        })
-                      }
-                    />
+                      keyIndex="timer-popover-scale"
+                      variants={animations.smallScale}
+                    >
+                      <HiChevronDown
+                        onClick={() =>
+                          setMinutes(state => {
+                            if (state - 1 <= -1 || state - 1 < 0) {
+                              return 20;
+                            } else {
+                              return state - 1;
+                            }
+                          })
+                        }
+                      />
+                    </AnimationWrapper>
                   </div>
                   <p className="mx-2">:</p>
                   <div className="flex flex-col justify-center items-center min-w-[2.5rem] max-w-[2.5rem]">
-                    <HiChevronUp
+                    <AnimationWrapper
                       className="cursor-pointer"
-                      onClick={() =>
-                        setSeconds(state => {
-                          if (state + 5 >= 60) {
-                            return 0;
-                          } else {
-                            return state + 5;
-                          }
-                        })
-                      }
-                    />
+                      keyIndex="timer-popover-scale"
+                      variants={animations.smallScale}
+                    >
+                      <HiChevronUp
+                        onClick={() =>
+                          setSeconds(state => {
+                            if (state + 5 >= 60) {
+                              return 0;
+                            } else {
+                              return state + 5;
+                            }
+                          })
+                        }
+                      />
+                    </AnimationWrapper>
                     <p className="">
                       {seconds < 10 && "0"}
                       {seconds}
                     </p>
-                    <HiChevronDown
+                    <AnimationWrapper
                       className="cursor-pointer"
-                      onClick={() =>
-                        setSeconds(state => {
-                          if (state - 5 <= -5 || state - 5 < 0) {
-                            return 55;
-                          } else {
-                            return state - 5;
-                          }
-                        })
-                      }
-                    />
+                      keyIndex="timer-popover-scale"
+                      variants={animations.smallScale}
+                    >
+                      <HiChevronDown
+                        onClick={() =>
+                          setSeconds(state => {
+                            if (state - 5 <= -5 || state - 5 < 0) {
+                              return 55;
+                            } else {
+                              return state - 5;
+                            }
+                          })
+                        }
+                      />
+                    </AnimationWrapper>
                   </div>
                 </>
               )}

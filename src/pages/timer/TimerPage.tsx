@@ -1,10 +1,10 @@
 import { DefaultWrapper } from "components/layouts";
 
-export const AboutPage = () => {
+export const TimerPage = () => {
   return (
     <DefaultWrapper>
       <div className="flex flex-col w-full">
-        <div>About</div>
+        <div>Timer</div>
       </div>
     </DefaultWrapper>
   );

@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import { intervalToDuration } from "date-fns";
-import { GoDash } from "react-icons/all";
 import { useNavigate } from "react-router-dom";
 
 import { animations, AnimationWrapper } from "components";
@@ -42,7 +41,7 @@ export const TeaCard = ({ tea }: Props) => {
             ) : (
               <>
                 <p>{`${brewTimeMin.minutes} minutes`}</p>
-                <GoDash className="text-zinc-800" />
+                <p className="mx-1">-</p>
                 <p>{`${brewTimeMax.minutes} minutes`}</p>
               </>
             )}

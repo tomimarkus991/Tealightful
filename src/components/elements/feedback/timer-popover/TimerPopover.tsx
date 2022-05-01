@@ -2,9 +2,9 @@ import { Popover } from "@headlessui/react";
 
 import clsx from "clsx";
 import { useEffect, useState } from "react";
-import { HiChevronDown, HiChevronUp, RiTimerFlashFill } from "react-icons/all";
+import { HiChevronDown, HiChevronUp, MdRestartAlt, RiTimerFlashFill } from "react-icons/all";
 
-import { AnimationWrapper, animations, RealButton } from "components";
+import { AnimationWrapper, animations, RealButton, RealIconButton } from "components";
 
 export const TimerPopover = () => {
   const [seconds, setSeconds] = useState(0);
@@ -149,14 +149,30 @@ export const TimerPopover = () => {
                 </>
               )}
             </div>
-            <RealButton
-              onClick={() => setStarted(state => !state)}
-              size="xs"
-              disabled={isDisabled}
-              className={clsx(isDisabled ? "cursor-not-allowed" : "cursor-pointer")}
-            >
-              {started ? "Stop" : "Start"}
-            </RealButton>
+            <div className="flex flex-row justify-between items-center">
+              <RealIconButton size="xs" className="opacity-0 cursor-default">
+                <MdRestartAlt />
+              </RealIconButton>
+              <RealButton
+                onClick={() => setStarted(state => !state)}
+                size="xs"
+                disabled={isDisabled}
+                className={clsx(isDisabled ? "cursor-not-allowed" : "cursor-pointer", "mr-2")}
+              >
+                {started ? "Stop" : "Start"}
+              </RealButton>
+              <RealIconButton
+                size="xs"
+                onClick={() => {
+                  setMinutes(0);
+                  setSeconds(0);
+                  setStarted(false);
+                  setIsComplete(false);
+                }}
+              >
+                <MdRestartAlt />
+              </RealIconButton>
+            </div>
           </div>
         </div>
       </Popover.Panel>

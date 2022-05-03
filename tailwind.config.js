@@ -17,17 +17,11 @@ module.exports = {
       varela: ["Varela Round", "sans-serif"],
       sans: ["Rubik", "sans-serif"],
     },
-    // linearBorderGradients: {
-    //   colors: {
-    //     "light-blue": [colors.lime[500], colors.green[500]],
-    //   },
-    // },
     linearBorderGradients: () => ({
       colors: {
         "light-green": [colors.emerald[500], colors.green[500], colors.lime[500]],
         "light-blue": [colors.teal[500], colors.emerald[500], colors.green[500]],
       },
-      // background: theme("colors"),
       background: {
         white: "#fff",
       },
